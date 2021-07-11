@@ -1,0 +1,12 @@
+.login-form-container{
+    display: grid;
+    place-items:center;
+    border:2px solid blue;
+    height: 90vh;
+
+    .login-form{
+        border:2px solid brown;
+        padding: 4rem;
+    }
+}
+

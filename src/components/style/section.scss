@@ -1,0 +1,47 @@
+.section{
+    
+    border:2px solid rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    max-height: 98%;
+    background-color: rgb(210, 225, 226);
+    margin: 0rem 1rem;
+    min-width: 18rem;
+    border-radius: 4px;
+
+    &-header{
+        display: flex;
+        justify-content:space-between;
+    }
+
+    &-name{   
+        width: 100%;
+        text-align: center ;
+        font-size: 1.2rem;
+    }
+    
+    &-buttons{
+        display:flex;
+    }
+}
+
+
+.note-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+        width: 0.5em;
+    }
+    &::-webkit-scrollbar-track{
+        box-shadow: grey;
+    }
+    
+    &::-webkit-scrollbar-thumb{
+        background-color:green;
+    }
+
+}
