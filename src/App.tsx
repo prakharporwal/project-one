@@ -1,8 +1,8 @@
 
-import BoardPage from './components/BoardPage';
+import BoardPage from './pages/BoardPage';
 import {BrowserRouter , Route}  from 'react-router-dom'
 import './App.css';
-import { LoginPage } from './components/LoginPage';
+import { LoginPage } from './pages/LoginPage';
 
 function App() {
   return (

@@ -7,7 +7,7 @@ function TopBar() {
     return (
         <nav className="topbar">
             <ul className="nav-list">
-                <Link to="#"><div className="nav-item">Home</div></Link>
+                <Link to="#"><div className="nav-item">All Boards</div></Link>
                 <Link to="#"><div className="nav-item">Home</div></Link>
                 <Link to="#"><div className="nav-item">Home</div></Link>
                 <Link to="#"><div className="nav-item">Home</div></Link>
