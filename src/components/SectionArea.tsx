@@ -4,11 +4,21 @@ import "./style/sectionArea.scss"
 
 type SectionType = {
   notes ?,
-  section_name:string
+  section_name?:string
 }
-const SectionArea= ({sections, boardName})=> {
 
-      let [sectionList,setSectionList] = useState<SectionType[]>(sections)
+type BoardType = {
+  sections?: SectionType[],
+  board_name: string
+}
+
+type SectionAreaPropsType ={
+  board: BoardType
+}
+
+const SectionArea= (props: SectionAreaPropsType)=> {
+
+      let [sectionList,setSectionList] = useState<SectionType[]>(props.board?props.board.sections:[])
       let [showNewSection, setShowNewSection] = useState(false)
       const [newSectionName, setNewSectionName] = useState("")
   
@@ -21,16 +31,17 @@ const SectionArea= ({sections, boardName})=> {
           section_name: newSectionName ,
           notes:[]
         }
-        setSectionList([...sectionList, newSection])
+        sectionList.push(newSection)
+        setSectionList(sectionList)
 
         setShowNewSection(false)
       }
 
       return (
             <>
-              <span className="board-name">{boardName}</span>
+              <span className="board-name">{props.board?props.board.board_name:""}</span>
               <div className="section-area">
-                {sectionList.length && sectionList.map((section)=>{
+                {sectionList && sectionList.map((section)=>{
                   return <Section section={section} ></Section>
                 })}
 

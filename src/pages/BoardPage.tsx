@@ -3,25 +3,29 @@ import SectionArea  from "../components/SectionArea";
 import TopBar from "../components/TopBar";
 import './style/boardPage.scss'
 
+type SectionType = {
+  notes ?,
+  section_name?:string
+}
+
 type BoardType = {
-  boardId: string,
-  boardName: string,
-  sections?:string
+  sections?:SectionType[],
+  board_name: string
 }
 
 export default function BoardPage() {
   
   const [board,setBoard] = useState<BoardType>() 
   
-  useEffect(()=>{
-  fetch("https://75d0a8fb-afd1-4331-9b0d-42ee4b880cd0.mock.pstmn.io/boards/all")
-  .then(async res=> {
+  // useEffect(()=>{
+  // fetch("https://75d0a8fb-afd1-4331-9b0d-42ee4b880cd0.mock.pstmn.io/boards/all")
+  // .then(async res=> {
   
-    let tempBoard:Promise<BoardType> = res.json()
-    console.log(tempBoard)
+  //   let tempBoard:Promise<BoardType> = res.json()
+  //   console.log(tempBoard)
   
-    setBoard(await tempBoard)
-  })},[])
+  //   setBoard(await tempBoard)
+  // })},[])
   
 
   return (
@@ -31,7 +35,7 @@ export default function BoardPage() {
       </div>
 
       <div className="section-block">
-        { board && <SectionArea boardName={board.boardName} sections={board["sections"]}></SectionArea>}
+        <SectionArea board={board}></SectionArea>
       </div>
     </div>
   );
